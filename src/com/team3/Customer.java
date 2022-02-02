@@ -4,20 +4,24 @@ import java.util.Objects;
 
 public class Customer {
 
-    private String name;
+    private String firstName;
+    private String surName;
     private int customerID;
+    private String email;
 
-    public Customer(String name, int customerID) {
-        this.name = name;
+    public Customer(String firstName, String surName, int customerID, String email) {
+        this.firstName = firstName;
+        this.surName = surName;
         this.customerID = customerID;
+        this.email = email;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public int getCustomerID() {
@@ -31,7 +35,7 @@ public class Customer {
     @Override
     public String toString() {
         return "Customer{" +
-                "name='" + name + '\'' +
+                "name='" + firstName + '\'' +
                 ", customerID=" + customerID +
                 '}';
     }
@@ -41,11 +45,11 @@ public class Customer {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Customer customer = (Customer) o;
-        return customerID == customer.customerID && Objects.equals(name, customer.name);
+        return customerID == customer.customerID && Objects.equals(firstName, customer.firstName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, customerID);
+        return Objects.hash(firstName, customerID);
     }
 }
