@@ -12,8 +12,7 @@ public class Flight {
     private int capacity;
 
 
-    public Flight() {
-    }
+
 
 
 
@@ -95,4 +94,6 @@ public class Flight {
         public int hashCode () {
             return Objects.hash(flightID, destination, price, depature, capacity);
         }
+
+
     }
