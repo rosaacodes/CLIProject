@@ -18,23 +18,27 @@ public class CustomerService {
 
         // If ID inputted is correct
         Boolean repeatPasswordEntry = true;
-        if(inputID==123){
-            Scanner scannerPassword = new Scanner(System.in);
-            System.out.println("Input your password: ");
-            String inputPassword = scannerPassword.nextLine();
-            if(inputPassword.equals("password")) {
-                System.out.println("Welcome Nelson!");
-            }
-            else{
-                System.out.println("Wrong password, please try again:");
+        while (repeatPasswordEntry) {
+            if (inputID == 123) {
+                Scanner scannerPassword = new Scanner(System.in);
+                System.out.println("Input your password: ");
+                String inputPassword = scannerPassword.nextLine();
+                if (inputPassword.equals("password")) {
+                    System.out.println("Welcome Nelson!");
+                    repeatPasswordEntry = false;
+                } else {
+                    System.out.println("Wrong password, please try again:");
+                    repeatPasswordEntry = true;
+                }}
+                else{
+                    System.out.println("Wrong ID, please try again: ");
 
+                }
             }
-        }
-        else {
-            System.out.println("Wrong ID, please try again: ");
-        }
 
+
+        }
 
     }
 
-}
+
