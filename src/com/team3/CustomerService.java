@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class CustomerService {
 
-    public void firstScanner() {
+    public void firstScanner(Airport airport) {
 
         // Print welcome message for user
         System.out.println("Welcome to the Flight Booking System!");
@@ -13,8 +13,6 @@ public class CustomerService {
         // Create scanner variable that stores user input
         Scanner scannerID = new Scanner(System.in);
         // Read user input and stores in input variable
-        int inputID = scannerID.nextInt();
-        System.out.println("ID: " + inputID);     // delete
 
 
         // If ID inputted is correct
@@ -22,26 +20,32 @@ public class CustomerService {
         Boolean repeatIDEntry = true;
 
         while (repeatIDEntry || repeatPasswordEntry) {
+        int inputID = scannerID.nextInt();
+            scannerID.nextLine();
 
             if (inputID == 123) {
-                Scanner scannerPassword = new Scanner(System.in);
+                while (repeatPasswordEntry) {
                 System.out.println("Input your password: ");
-                String inputPassword = scannerPassword.nextLine();
-                if (inputPassword.equals("password")) {
+                String inputPassword = scannerID.nextLine();
+                if (inputPassword.equals("password")){
+
                     System.out.println("Welcome Nelson!");
                     System.out.println("----------------");
                     repeatPasswordEntry = false;
                     repeatIDEntry = false;
-                    options();
-                } else {
+                    options(airport);
+                } else{
                     System.out.println("Wrong password, please try again:");
                     repeatPasswordEntry = true;
                     repeatIDEntry = false;
                 }
+                }
+
+
             } else {
                 System.out.println("Wrong ID, please try again: ");
                 repeatIDEntry = true;
-                scannerEntry();
+//                scannerEntry();
 
             }
         }
@@ -51,15 +55,15 @@ public class CustomerService {
 
 
 
-    public void scannerEntry() {  //removed static
-        System.out.println("Please enter your ID:");
-        // Create scanner variable that stores user input
-        Scanner scannerID = new Scanner(System.in);
-        // Read user input and stores in input variable
-        int inputID = scannerID.nextInt();
-    }
+//    public void scannerEntry() {  //removed static
+//        System.out.println("Please enter your ID:");
+//        // Create scanner variable that stores user input
+//        Scanner scannerID = new Scanner(System.in);
+//        // Read user input and stores in input variable
+//        int inputID = scannerID.nextInt();
+//    }
 
-    public void options() {
+    public void options(Airport airport) {
         System.out.println("Enter the following numbers to choose the service you would like to use today");
         System.out.println("1. View available flights");
         System.out.println("2. Manage bookings");
@@ -67,7 +71,9 @@ public class CustomerService {
         int optioninput = scannerOptions.nextInt();
         if(optioninput==1) {
             //let user view flights
+
             System.out.println("Here are all the available flights for you to choose from");
+            airport.displayFlightsPrnt();
         }
         else if (optioninput==2) {
             System.out.println("Would you like to:");

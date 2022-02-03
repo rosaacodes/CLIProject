@@ -1,6 +1,9 @@
 package com.team3;
 
+
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class FlightService {
 
@@ -13,11 +16,17 @@ public class FlightService {
 //option 1 logic - display flight all flight objects
 
 
-    public static void displayFlights (Flight[] flightArray){
-        System.out.println(flightArray);
-
-
-    }
+//    public static void displayFlights (Airport airport){
+////        System.out.println(flightArray);
+//        List<Flight> flightList = new ArrayList<>();
+//        flightList.add(flightOne);
+//        flightList.add(flightTwo);
+//        flightList.remove(flightTwo);
+//
+//
+//        System.out.println(flightList);
+//
+//    }
 
 
 

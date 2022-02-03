@@ -8,26 +8,27 @@ import java.util.Objects;
 public class Airport {
 
     private String name;
-    private Flight[] scheduledFlights = new Flight[5];
+    private Flight[] scheduledFlights;
     private int capacity;
 
 
     public Airport(String name, int capacity) {
         this.name = name;
         this.scheduledFlights = new Flight[capacity];
+        this.capacity = capacity;
     }
 
 
+//
+//    public void flightListCustomer () {
+//        List<Flight> flightList = new ArrayList<>();
+//        flightList.add();
+//        flightList.add(flightTwo);
+//        flightList.remove(flightTwo);
+//
+//
+//        System.out.println(flightList);
 
-    public void flightListCustomer () {
-        List<Flight> flightList = new ArrayList<>();
-        flightList.add();
-        flightList.add(flightTwo);
-        flightList.remove(flightTwo);
-
-
-        System.out.println(flightList);
-    }
 
     public String getName() {
         return name;
@@ -67,5 +68,31 @@ public class Airport {
         int result = Objects.hash(name, capacity);
         result = 31 * result + Arrays.hashCode(scheduledFlights);
         return result;
+    }
+
+    public void addFlightBooking(Flight newFlight) {
+
+        for (int i = 0; i < capacity; i++) {
+            if(this.scheduledFlights[i] == null) {
+                this.scheduledFlights[i] = newFlight;
+                break;
+            }
+
+            }
+        }
+
+
+    public int countNumberOfFlights() {
+        int numOfFlights = 0;
+        for (int i = 0; i < this.capacity; i++) {
+            if(this.scheduledFlights[i] != null) {
+                numOfFlights++;
+            }
+        }
+        return numOfFlights;
+    }
+    public void displayFlightsPrnt(){
+        System.out.println(Arrays.toString(scheduledFlights));
+
     }
 }
